@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const DEFAULT_PROVIDER = "shengsuanyun";
 const DEFAULT_MODEL = "deepseek/deepseek-v4-pro";
+const MODEL_SCOPE = "shengsuanyun/*";
 const MODEL_ENV = "SHENGSUANYUN_GATEWAY_MODEL";
 
 const packageDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -22,6 +23,8 @@ const defaultArgs = [
 	DEFAULT_PROVIDER,
 	"--model",
 	process.env[MODEL_ENV] ?? DEFAULT_MODEL,
+	"--models",
+	MODEL_SCOPE,
 ];
 
 const result = spawnSync(process.execPath, [piCliPath, ...defaultArgs, ...process.argv.slice(2)], {
