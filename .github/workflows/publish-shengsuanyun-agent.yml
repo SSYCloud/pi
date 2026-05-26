@@ -1,0 +1,82 @@
+name: Publish Shengsuanyun Agent
+
+on:
+  push:
+    tags:
+      - shengsuanyun-agent-v*
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run npm publish with --dry-run
+        required: true
+        default: true
+        type: boolean
+      version:
+        description: Optional package version override, such as 0.1.0
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-shengsuanyun-agent-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev fd-find ripgrep
+          sudo ln -s "$(which fdfind)" /usr/local/bin/fd
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Set tag package version
+        if: ${{ startsWith(github.ref, 'refs/tags/shengsuanyun-agent-v') }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#shengsuanyun-agent-v}"
+          npm version "${VERSION}" --workspace @cocovs/shengsuanyun-coding-agent --no-git-tag-version --allow-same-version
+
+      - name: Set manual package version
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.version != '' }}
+        run: npm version "${{ inputs.version }}" --workspace @cocovs/shengsuanyun-coding-agent --no-git-tag-version --allow-same-version
+
+      - name: Build Pi packages
+        run: npm run build
+
+      - name: Check Shengsuanyun CLI package
+        run: npm run check --workspace @cocovs/shengsuanyun-coding-agent
+
+      - name: Smoke test CLI help
+        run: ./node_modules/.bin/shengsuanyun-agent --help
+
+      - name: Verify package contents
+        run: npm pack --workspace @cocovs/shengsuanyun-coding-agent --dry-run
+
+      - name: Publish dry run
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: npm publish --workspace @cocovs/shengsuanyun-coding-agent --access public --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish
+        if: ${{ startsWith(github.ref, 'refs/tags/shengsuanyun-agent-v') || !inputs.dry_run }}
+        run: npm publish --workspace @cocovs/shengsuanyun-coding-agent --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
