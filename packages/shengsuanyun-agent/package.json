@@ -7,6 +7,7 @@
 		"shengsuanyun-agent": "bin/shengsuanyun-agent.js"
 	},
 	"files": [
+		"assets",
 		"bin",
 		"src",
 		"themes",

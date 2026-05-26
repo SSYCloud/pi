@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1016" height="884" viewBox="0 0 1016 884" role="img" aria-label="SSC model selector">
+<title>SSC model selector</title>
+<rect width="100%" height="100%" rx="8" fill="#151a20"/>
+<g font-family="Menlo, Monaco, Consolas, 'Liberation Mono', monospace" font-size="16" xml:space="preserve">
+<text x="28" y="28" fill="#e8edf2"></text>
+<text x="28" y="50" fill="#e6c84f">[Prompts]</text>
+<text x="28" y="72" fill="#e8edf2">  /cl, /is, /pr, /wr</text>
+<text x="28" y="94" fill="#e8edf2"></text>
+<text x="28" y="116" fill="#e6c84f">[Extensions]</text>
+<text x="28" y="138" fill="#e8edf2">  extension.ts, prompt-url-widget.ts, redraws.ts, tps.ts</text>
+<text x="28" y="160" fill="#e8edf2"></text>
+<text x="28" y="182" fill="#e6c84f">[Themes]</text>
+<text x="28" y="204" fill="#e8edf2">  shengsuanyun-dark</text>
+<text x="28" y="226" fill="#e8edf2"></text>
+<text x="28" y="248" fill="#e8edf2"></text>
+<text x="28" y="270" fill="#99a4af"> Warning: tmux extended-keys is off. Modified Enter keys may not work. Add `set -g extended-keys</text>
+<text x="28" y="292" fill="#e8edf2"> on` to ~/.tmux.conf and restart tmux.</text>
+<text x="28" y="314" fill="#e8edf2"></text>
+<text x="28" y="336" fill="#31b7ff">────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="28" y="358" fill="#e8edf2"></text>
+<text x="28" y="380" fill="#e8edf2">Only showing models from configured providers. Use /login to add providers.</text>
+<text x="28" y="402" fill="#e8edf2"></text>
+<text x="28" y="424" fill="#e8edf2">&gt;</text>
+<text x="28" y="446" fill="#e8edf2"></text>
+<text x="28" y="468" fill="#35c58a">→ deepseek/deepseek-v4-pro [shengsuanyun] ✓</text>
+<text x="28" y="490" fill="#e8edf2">  deepseek/deepseek-v3.2 [shengsuanyun]</text>
+<text x="28" y="512" fill="#e8edf2">  ali/qwen3.5-plus [shengsuanyun]</text>
+<text x="28" y="534" fill="#e8edf2">  moonshot/kimi-k2 [shengsuanyun]</text>
+<text x="28" y="556" fill="#e8edf2">  ali/qwen3-coder-plus [shengsuanyun]</text>
+<text x="28" y="578" fill="#e8edf2">  openai/gpt-5.2 [shengsuanyun]</text>
+<text x="28" y="600" fill="#e8edf2">  ali/qwen3.6-plus [shengsuanyun]</text>
+<text x="28" y="622" fill="#e8edf2">  bigmodel/glm-4.7 [shengsuanyun]</text>
+<text x="28" y="644" fill="#e8edf2">  minimax/minimax-m2.1-lightning [shengsuanyun]</text>
+<text x="28" y="666" fill="#e8edf2">  minimax/minimax-m2.1 [shengsuanyun]</text>
+<text x="28" y="688" fill="#e8edf2">  (1/147)</text>
+<text x="28" y="710" fill="#e8edf2"></text>
+<text x="28" y="732" fill="#e8edf2">  Model Name: DeepSeek-V4-Pro（限时2.5折）</text>
+<text x="28" y="754" fill="#e8edf2"></text>
+<text x="28" y="776" fill="#31b7ff">────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="28" y="798" fill="#e8edf2">~/project/shengsuanyun/githuborganization/pi (main)</text>
+<text x="28" y="820" fill="#e8edf2">0.0%/1.0M (auto)                                                   deepseek/deepseek-v4-pro • medium</text>
+<text x="28" y="842" fill="#35c58a">SHENGSUANYUN / 胜算云模型网关</text>
+</g>
+</svg>

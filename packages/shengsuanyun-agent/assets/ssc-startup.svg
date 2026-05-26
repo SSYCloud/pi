@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1016" height="862" viewBox="0 0 1016 862" role="img" aria-label="SSC startup">
+<title>SSC startup</title>
+<rect width="100%" height="100%" rx="8" fill="#151a20"/>
+<g font-family="Menlo, Monaco, Consolas, 'Liberation Mono', monospace" font-size="16" xml:space="preserve">
+<text x="28" y="28" fill="#e8edf2">/tmp/shengsuanyun-shot.sh</text>
+<text x="28" y="50" fill="#e8edf2">❯ /tmp/shengsuanyun-shot.sh</text>
+<text x="28" y="72" fill="#99a4af">Warning: No models match pattern "shengsuanyun/*"</text>
+<text x="28" y="94" fill="#e8edf2"></text>
+<text x="28" y="116" fill="#e8edf2"></text>
+<text x="28" y="138" fill="#35c58a">   ███████╗ ███████╗  ██████╗</text>
+<text x="28" y="160" fill="#e8edf2">   ██╔════╝ ██╔════╝ ██╔════╝</text>
+<text x="28" y="182" fill="#35c58a">   ███████╗ ███████╗ ██║</text>
+<text x="28" y="204" fill="#e8edf2">   ╚════██║ ╚════██║ ██║</text>
+<text x="28" y="226" fill="#35c58a">   ███████║ ███████║ ╚██████╗</text>
+<text x="28" y="248" fill="#e8edf2">   ╚══════╝ ╚══════╝  ╚═════╝</text>
+<text x="28" y="270" fill="#35c58a">  SS Cloud / SHENGSUANYUN / 胜算云 Coding Agent</text>
+<text x="28" y="292" fill="#31b7ff">  ============================================================</text>
+<text x="28" y="314" fill="#e8edf2">  大模型网关驱动的终端 Coding Agent</text>
+<text x="28" y="336" fill="#99a4af">  Provider: shengsuanyun  Protocol: OpenAI Chat Completions</text>
+<text x="28" y="358" fill="#99a4af">  Model: use /model or Ctrl+L to switch</text>
+<text x="28" y="380" fill="#e8edf2"></text>
+<text x="28" y="402" fill="#e8edf2"></text>
+<text x="28" y="424" fill="#e6c84f">[Prompts]</text>
+<text x="28" y="446" fill="#e8edf2">  /cl, /is, /pr, /wr</text>
+<text x="28" y="468" fill="#e8edf2"></text>
+<text x="28" y="490" fill="#e6c84f">[Extensions]</text>
+<text x="28" y="512" fill="#e8edf2">  extension.ts, prompt-url-widget.ts, redraws.ts, tps.ts</text>
+<text x="28" y="534" fill="#e8edf2"></text>
+<text x="28" y="556" fill="#e6c84f">[Themes]</text>
+<text x="28" y="578" fill="#e8edf2">  shengsuanyun-dark</text>
+<text x="28" y="600" fill="#e8edf2"></text>
+<text x="28" y="622" fill="#e8edf2"></text>
+<text x="28" y="644" fill="#99a4af"> Warning: tmux extended-keys is off. Modified Enter keys may not work. Add `set -g extended-keys</text>
+<text x="28" y="666" fill="#e8edf2"> on` to ~/.tmux.conf and restart tmux.</text>
+<text x="28" y="688" fill="#e8edf2"></text>
+<text x="28" y="710" fill="#31b7ff">────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="28" y="732" fill="#e8edf2"></text>
+<text x="28" y="754" fill="#31b7ff">────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="28" y="776" fill="#e8edf2">~/project/shengsuanyun/githuborganization/pi (main)</text>
+<text x="28" y="798" fill="#e8edf2">0.0%/1.0M (auto)                                                   deepseek/deepseek-v4-pro • medium</text>
+<text x="28" y="820" fill="#35c58a">SHENGSUANYUN / 胜算云模型网关</text>
+</g>
+</svg>
