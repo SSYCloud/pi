@@ -1,0 +1,32 @@
+{
+	"name": "@cocovs/shengsuanyun-coding-agent",
+	"version": "0.75.5",
+	"type": "module",
+	"description": "Shengsuanyun branded Pi coding agent prototype",
+	"bin": {
+		"shengsuanyun-agent": "bin/shengsuanyun-agent.js"
+	},
+	"files": [
+		"bin",
+		"src",
+		"themes",
+		"README.md"
+	],
+	"scripts": {
+		"build": "echo 'nothing to build'",
+		"check": "node --check ./bin/shengsuanyun-agent.js",
+		"dev": "node ./bin/shengsuanyun-agent.js",
+		"list-models": "node ./bin/shengsuanyun-agent.js --list-models shengsuanyun"
+	},
+	"pi": {
+		"extensions": [
+			"./src/extension.ts"
+		],
+		"themes": [
+			"./themes/shengsuanyun-dark.json"
+		]
+	},
+	"dependencies": {
+		"@earendil-works/pi-coding-agent": "0.75.5"
+	}
+}
