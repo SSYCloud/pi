@@ -35,10 +35,10 @@ npm run build
 ./node_modules/.bin/shengsuanyun-agent
 ```
 
-默认启动模型是 `ali/qwen3-coder-plus`。如果要换模型，可以用环境变量：
+默认启动模型是 `deepseek/deepseek-v4-pro`。如果要换模型，可以用环境变量：
 
 ```bash
-SHENGSUANYUN_GATEWAY_MODEL=deepseek/deepseek-v4-pro ./node_modules/.bin/shengsuanyun-agent
+SHENGSUANYUN_GATEWAY_MODEL=ali/qwen3-coder-plus ./node_modules/.bin/shengsuanyun-agent
 ```
 
 查看注册到 Pi 的胜算云模型：

@@ -156,14 +156,23 @@ async function fetchGatewayModels(baseUrl: string): Promise<ProviderModelConfig[
 
 function headerLines(theme: Theme): string[] {
 	const accent = (text: string) => theme.fg("accent", text);
+	const brand = (text: string) => theme.bold(theme.fg("accent", text));
 	const muted = (text: string) => theme.fg("muted", text);
 	const dim = (text: string) => theme.fg("dim", text);
 
 	return [
 		"",
-		accent("  SHENGSUANYUN Coding Agent"),
-		muted("  胜算云大模型网关驱动的终端 Coding Agent 原型"),
-		dim("  Provider: shengsuanyun  Model: use /model or Ctrl+L to switch"),
+		brand("   ███████╗ ███████╗  ██████╗"),
+		brand("   ██╔════╝ ██╔════╝ ██╔════╝"),
+		brand("   ███████╗ ███████╗ ██║     "),
+		brand("   ╚════██║ ╚════██║ ██║     "),
+		brand("   ███████║ ███████║ ╚██████╗"),
+		brand("   ╚══════╝ ╚══════╝  ╚═════╝"),
+		brand("  SS Cloud / SHENGSUANYUN / 胜算云 Coding Agent"),
+		accent("  ============================================================"),
+		muted("  大模型网关驱动的终端 Coding Agent"),
+		dim("  Provider: shengsuanyun  Protocol: OpenAI Chat Completions"),
+		dim("  Model: use /model or Ctrl+L to switch"),
 		"",
 	];
 }
@@ -190,10 +199,10 @@ export default async function shengsuanyunExtension(pi: ExtensionAPI): Promise<v
 	pi.on("session_start", async (_event, ctx) => {
 		if (!ctx.hasUI) return;
 
-		ctx.ui.setTitle("胜算云 Coding Agent");
+		ctx.ui.setTitle("SHENGSUANYUN Coding Agent");
 		ctx.ui.setWorkingMessage("胜算云模型网关正在生成响应");
 		ctx.ui.setHiddenThinkingLabel("推理过程已折叠");
-		ctx.ui.setStatus("shengsuanyun", PROVIDER_NAME);
+		ctx.ui.setStatus("shengsuanyun", `SHENGSUANYUN / ${PROVIDER_NAME}`);
 		ctx.ui.setHeader((_tui, theme) => ({
 			render: () => headerLines(theme),
 			invalidate: () => {},

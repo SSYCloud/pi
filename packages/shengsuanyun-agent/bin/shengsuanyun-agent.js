@@ -4,7 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const DEFAULT_PROVIDER = "shengsuanyun";
-const DEFAULT_MODEL = "ali/qwen3-coder-plus";
+const DEFAULT_MODEL = "deepseek/deepseek-v4-pro";
 const MODEL_ENV = "SHENGSUANYUN_GATEWAY_MODEL";
 
 const packageDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");

@@ -1,6 +1,6 @@
 {
 	"name": "@cocovs/shengsuanyun-coding-agent",
-	"version": "0.75.5",
+	"version": "0.75.5-shengsuanyun.1",
 	"type": "module",
 	"description": "Shengsuanyun branded Pi coding agent prototype",
 	"bin": {
