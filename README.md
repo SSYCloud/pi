@@ -5,7 +5,7 @@
 核心目标是让用户可以直接通过胜算云大模型网关使用多种代码模型，而不需要手动配置 Pi 的 provider、theme、extension 和模型范围。
 
 ```bash
-npm install -g @cocovs/shengsuanyun-coding-agent@0.75.5-shengsuanyun.1
+npm install -g @cocovs/shengsuanyun-coding-agent@0.75.5-shengsuanyun.2
 export SHENGSUANYUN_GATEWAY_API_KEY="..."
 shengsuanyun-agent
 ```
@@ -16,7 +16,7 @@ shengsuanyun-agent
 - 新增独立命令：`shengsuanyun-agent`
 - 新增胜算云 Provider：默认接入 `https://router.shengsuanyun.com/api/v1`
 - 默认模型改为：`deepseek/deepseek-v4-pro`
-- 交互式 `/model` 默认只查看和切换胜算云模型，范围为 `shengsuanyun/*`
+- 交互式 `/model` 默认只查看和切换胜算云模型，范围为 `shengsuanyun/**`
 - 模型列表从胜算云网关动态获取，并过滤支持 `/chat/completions` 的模型
 - 新增胜算云主题和 `SSC` 启动标识
 - 新增 tag 驱动的 GitHub Actions 发布流程
@@ -37,7 +37,13 @@ shengsuanyun-agent
 安装 CLI：
 
 ```bash
-npm install -g @cocovs/shengsuanyun-coding-agent@0.75.5-shengsuanyun.1
+npm install -g @cocovs/shengsuanyun-coding-agent@0.75.5-shengsuanyun.2
+```
+
+建议先安装本地代码搜索工具，避免首次启动时由 Pi 自动下载失败：
+
+```bash
+brew install ripgrep fd
 ```
 
 配置胜算云模型网关 API key：
@@ -70,6 +76,12 @@ SHENGSUANYUN_GATEWAY_MODEL=ali/qwen3-coder-plus shengsuanyun-agent
 shengsuanyun-agent --list-models shengsuanyun
 ```
 
+如果当前网络或代理环境无法访问模型列表接口，CLI 会使用内置的胜算云 fallback 模型列表。也可以显式指定 fallback 模型：
+
+```bash
+export SHENGSUANYUN_GATEWAY_MODELS="deepseek/deepseek-v4-pro=DeepSeek-V4-Pro,ali/qwen3.6-max-preview=Qwen3.6 Max"
+```
+
 ## 默认行为
 
 | 项目 | 默认值 |
@@ -80,7 +92,7 @@ shengsuanyun-agent --list-models shengsuanyun
 | 调用协议 | OpenAI Chat Completions |
 | 调用路径 | `/chat/completions` |
 | 模型列表 | `/models` |
-| 交互式模型范围 | `shengsuanyun/*` |
+| 交互式模型范围 | `shengsuanyun/**` |
 
 ## 环境变量
 
@@ -149,8 +161,8 @@ git push origin shengsuanyun-agent-v0.75.5
 同一个官方 Pi 版本上补发胜算云侧修复时，使用 prerelease 版本：
 
 ```bash
-git tag shengsuanyun-agent-v0.75.5-shengsuanyun.1
-git push origin shengsuanyun-agent-v0.75.5-shengsuanyun.1
+git tag shengsuanyun-agent-v0.75.5-shengsuanyun.2
+git push origin shengsuanyun-agent-v0.75.5-shengsuanyun.2
 ```
 
 GitHub Actions 会从 tag 中提取版本号，并发布 `@cocovs/shengsuanyun-coding-agent`。发布前需要在 GitHub Actions secrets 中配置 `NPM_TOKEN`。

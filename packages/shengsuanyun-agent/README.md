@@ -9,7 +9,13 @@ shengsuanyun-agent
 ## 安装
 
 ```bash
-npm install -g @cocovs/shengsuanyun-coding-agent@0.75.5-shengsuanyun.1
+npm install -g @cocovs/shengsuanyun-coding-agent@0.75.5-shengsuanyun.2
+```
+
+建议先安装本地代码搜索工具，避免首次启动时由 Pi 自动下载失败：
+
+```bash
+brew install ripgrep fd
 ```
 
 配置胜算云模型网关 API key：
@@ -45,7 +51,7 @@ shengsuanyun-agent --print "只回复 OK"
 - 默认网关：`https://router.shengsuanyun.com/api/v1`
 - 默认 provider：`shengsuanyun`
 - 默认模型：`deepseek/deepseek-v4-pro`
-- 交互式 `/model` 默认查看和切换胜算云模型，范围为 `shengsuanyun/*`
+- 交互式 `/model` 默认查看和切换胜算云模型，范围为 `shengsuanyun/**`
 - 默认协议：OpenAI Chat Completions
 - 实际调用路径：`${SHENGSUANYUN_GATEWAY_BASE_URL}/chat/completions`
 - 模型列表路径：`${SHENGSUANYUN_GATEWAY_BASE_URL}/models`
@@ -60,6 +66,12 @@ SHENGSUANYUN_GATEWAY_MODEL=ali/qwen3-coder-plus shengsuanyun-agent
 
 ```bash
 shengsuanyun-agent --list-models shengsuanyun
+```
+
+如果当前网络或代理环境无法访问模型列表接口，CLI 会使用内置的胜算云 fallback 模型列表。也可以显式指定 fallback 模型：
+
+```bash
+export SHENGSUANYUN_GATEWAY_MODELS="deepseek/deepseek-v4-pro=DeepSeek-V4-Pro,ali/qwen3.6-max-preview=Qwen3.6 Max"
 ```
 
 ## 环境变量
@@ -129,8 +141,8 @@ git push origin shengsuanyun-agent-v0.75.5
 同一个官方 Pi 版本上补发胜算云侧修复时，使用 prerelease 版本：
 
 ```bash
-git tag shengsuanyun-agent-v0.75.5-shengsuanyun.1
-git push origin shengsuanyun-agent-v0.75.5-shengsuanyun.1
+git tag shengsuanyun-agent-v0.75.5-shengsuanyun.2
+git push origin shengsuanyun-agent-v0.75.5-shengsuanyun.2
 ```
 
 GitHub Actions 会从 tag 中提取版本号，并发布 `@cocovs/shengsuanyun-coding-agent`。发布前需要在 GitHub Actions secrets 中配置 `NPM_TOKEN`。

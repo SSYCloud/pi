@@ -10,6 +10,86 @@ const API_KEY_ENV = "SHENGSUANYUN_GATEWAY_API_KEY";
 const BASE_URL_ENV = "SHENGSUANYUN_GATEWAY_BASE_URL";
 const MODELS_ENV = "SHENGSUANYUN_GATEWAY_MODELS";
 const MODELS_URL_ENV = "SHENGSUANYUN_GATEWAY_MODELS_URL";
+const DEFAULT_MODEL_ID = "deepseek/deepseek-v4-pro";
+const DEFAULT_MODEL_NAME = "DeepSeek-V4-Pro";
+
+const FALLBACK_MODELS: ProviderModelConfig[] = [
+	{
+		id: DEFAULT_MODEL_ID,
+		name: DEFAULT_MODEL_NAME,
+		reasoning: true,
+		input: ["text"],
+		cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+		contextWindow: 1000000,
+		maxTokens: 384000,
+		compat: {
+			supportsDeveloperRole: false,
+			supportsReasoningEffort: true,
+			supportsUsageInStreaming: true,
+			maxTokensField: "max_tokens",
+		},
+	},
+	{
+		id: "minimax/minimax-m2.5",
+		name: "MiniMax M2.5",
+		reasoning: true,
+		input: ["text"],
+		cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+		contextWindow: 200000,
+		maxTokens: 131000,
+		compat: {
+			supportsDeveloperRole: false,
+			supportsReasoningEffort: true,
+			supportsUsageInStreaming: true,
+			maxTokensField: "max_tokens",
+		},
+	},
+	{
+		id: "ali/qwen3.6-max-preview",
+		name: "Qwen3.6-Max-Preview",
+		reasoning: true,
+		input: ["text"],
+		cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+		contextWindow: 256000,
+		maxTokens: 64000,
+		compat: {
+			supportsDeveloperRole: false,
+			supportsReasoningEffort: true,
+			supportsUsageInStreaming: true,
+			maxTokensField: "max_tokens",
+		},
+	},
+	{
+		id: "google/gemini-3.5-flash",
+		name: "Gemini 3.5 Flash",
+		reasoning: true,
+		input: ["text"],
+		cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+		contextWindow: 1048576,
+		maxTokens: 65535,
+		compat: {
+			supportsDeveloperRole: false,
+			supportsReasoningEffort: true,
+			supportsUsageInStreaming: true,
+			maxTokensField: "max_tokens",
+		},
+	},
+	{
+		id: "anthropic/claude-haiku-4.5",
+		name: "Claude Haiku 4.5",
+		reasoning: true,
+		input: ["text", "image"],
+		cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+		contextWindow: 200000,
+		maxTokens: 64000,
+		compat: {
+			supportsDeveloperRole: false,
+			supportsReasoningEffort: true,
+			supportsUsageInStreaming: true,
+			maxTokensField: "max_tokens",
+		},
+	},
+];
 
 function parseModelList(value: string | undefined): ProviderModelConfig[] {
 	const modelSpecs = value
@@ -18,23 +98,7 @@ function parseModelList(value: string | undefined): ProviderModelConfig[] {
 		.filter((item) => item.length > 0);
 
 	if (!modelSpecs || modelSpecs.length === 0) {
-		return [
-			{
-				id: "gateway-default",
-				name: "胜算云网关默认模型",
-				reasoning: true,
-				input: ["text", "image"],
-				cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
-				contextWindow: 128000,
-				maxTokens: 8192,
-				compat: {
-					supportsDeveloperRole: false,
-					supportsReasoningEffort: true,
-					supportsUsageInStreaming: true,
-					maxTokensField: "max_tokens",
-				},
-			},
-		];
+		return FALLBACK_MODELS;
 	}
 
 	return modelSpecs.map((spec) => {
